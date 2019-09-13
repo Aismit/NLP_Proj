@@ -1,0 +1,44 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww16660\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 \
+In order to run the model make sure the following modules/dependencies are downloaded and with the following versions:\
+\
+Also run with python 3.6\
+\
+keras==2.1.5\
+sklearn==0.20.2\
+pandas==0.20.3\
+tensorflow==1.7.0\
+numpy==1.15.4\
+json==2.0.9\
+re==2.2.1\
+\
+I also included a MacOSFile for serializing and writing the files. \
+\
+Most of these can be installed using pip3 installed by running pip3 install \'97upgrade \'93module==version\'94\
+\
+Example: pip3 install \'97upgrade keras==2.1.3 \
+\
+Can run the build model file by running python3 build_model.py in the directory.\
+Same for making predictions: python3 make_predictions.py\
+\
+Summary of my project:\
+The expected performance of the current model should be a few percentage points over 80 percent. I took a variety of approaches building different types of neural networks to handle the problem but duet the lack of data points as there were only 120,000 and we were not allowed to mine for data on the internet the data space was smaller that other types of text classification problems especially when the classification involved 56 different languages. None the less after training several neural nets such as CNNs, Rnns, Bidirectional RNNS, LSTM RNNs. The combined convolutional lstm recurrent neural network worked best for the training speed but because of the fact that there were fewer hidden layers and fewer neurons per layer, achieving high accuracy with 85%  or higher was difficult as they were computationally expensive and required many epochs to train. As it turns out the Linear Support Vector Classifier was one of the few models that was able to classify with over an 80 percent probability because it took a one vs all approach. I choose this model because of the many different models and parameters I tried, it had the highest accuracy and took a reasonable amount of time to train. I have included a lot of my Jupiter notebooks so that you can see all my scratch work and previous models I was trying to build!\
+\
+Feature Engineering:\
+Initially I tried cleaning the string and removing out a lot of the punctuation marks and number characters in the strings to make each strings have less features in common to help better classify the languages as there would be less overlap of features. However after tokeninizing the string by character values the accuracy decreased. As a result I looked into using character-ngrams of range 1 to 6 to encode the sequences because I chose the smaller value of range 1 to identify different potential individual characters that belong to a given language. Then I used 2 to 3 to encapsulate suffixes of sets of characters that appear frequently. Then the larger end of the range to encapsulate smaller words that are frequent to a given language. For example like the word \'93por\'94 is not commonly seen in English but seen a lot in Spanish as well as \'93ing\'94 is seen a lot in English but not in Spanish. Therefore having a broad range best encapsulated as many of these characters and root words as possible other wise many features would have been lost. \
+\
+Concluding Notes:\
+Overall project was really fun and I was able to apply a lot of the theoretical stuff in class to build a cool machine learning model! I was looking into ensemble learning and different ways to hyper-tune various parameters of the different models. However I was aiming to get the accuracy as close to 90 as possible but given more time, I would have been able to build  and train deeper neural nets with more neurons per layers that would be able to better encapsulate the sequence of characters per language and classify them and hopefully get to that to higher accuracy level but I would say this definitely a solid step given the amount of time and data for the problem! \
+\
+\
+Total time: 5 days, 3 to 4.5 hours a day (includes model training time for neural networks)
+\fs24 \
+\
+\
+}
